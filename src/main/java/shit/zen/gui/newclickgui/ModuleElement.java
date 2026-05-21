@@ -56,7 +56,6 @@ extends UIElement {
     private static final String BUILD_TAG;
 
     public ModuleElement(CategoryPanel categoryPanel, Module module) {
-        System.out.println(BUILD_TAG);
         this.parentPanel = categoryPanel;
         this.module = module;
         for (Setting setting : module.getSettings()) {

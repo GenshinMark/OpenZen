@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Generated;
 import shit.zen.ClientBase;
 import shit.zen.ZenClient;
+import shit.zen.hud.ModuleListHud;
 import shit.zen.modules.Category;
 import shit.zen.modules.KeyBind;
 import shit.zen.settings.Setting;
@@ -18,6 +19,7 @@ extends ClientBase {
     @Getter
     private final Category category;
     private int keyCode;
+    @Getter
     private final KeyBind bind;
     @Getter
     private boolean enabled;
@@ -44,10 +46,6 @@ extends ClientBase {
     public void setKey(int keyCode) {
         this.keyCode = keyCode;
         this.bind.setKey(keyCode);
-    }
-
-    public KeyBind getBind() {
-        return this.bind;
     }
 
     public void addSetting(Setting<?> setting) {

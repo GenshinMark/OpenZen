@@ -11,6 +11,7 @@ import net.minecraftforge.fml.common.Mod;
 import shit.zen.event.EventBus;
 import shit.zen.event.EventTarget;
 import shit.zen.event.impl.TickEvent;
+import shit.zen.gui.IntroAnimation;
 import shit.zen.manager.CommandManager;
 import shit.zen.manager.ConfigManager;
 import shit.zen.manager.HudManager;
@@ -88,10 +89,12 @@ public class ZenClient extends ClientBase {
             this.configManager = new ConfigManager();
             this.lagManager = new LagManager();
             this.targetManager = new TargetManager();
+            this.eventBus.register(this.hudManager);
             this.eventBus.register(this.lagManager);
             this.eventBus.register(this.targetManager);
             this.eventBus.register(this);
             this.commandManager.initCommands();
+            this.eventBus.register(new IntroAnimation());
             registerPatches();
             if (PatchAgent.getInstrumentation() != null) {
                 PatchAgent.installPatchesAndRetransform();

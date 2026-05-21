@@ -16,7 +16,6 @@ import shit.zen.utils.math.Easings;
 public class NewClickGui
 extends Screen {
     private static final List<CategoryPanel> categoryPanels;
-    private static boolean initialized;
     public static CategoryPanel focusedPanel;
     @Getter
     private boolean closing = false;
@@ -25,11 +24,11 @@ extends Screen {
 
     public NewClickGui() {
         super(Component.literal("ClickGui"));
-        System.out.println("12");
+        // System.out.println("12");
     }
 
     protected void init() {
-        System.out.println("13");
+        // System.out.println("13");
         focusedPanel = categoryPanels.get(0);
         float panelX = (float)this.width / 2.0f - 380.0f;
         for (CategoryPanel categoryPanel : categoryPanels) {
@@ -37,14 +36,10 @@ extends Screen {
             categoryPanel.setY(36.0f);
             panelX += 128.0f;
         }
-        initialized = true;
-        System.out.println("14");
+        // System.out.println("14");
     }
 
     public void render(@NonNull GuiGraphics guiGraphics, int mouseX, int mouseY, float partialTicks) {
-        if (guiGraphics == null) {
-            throw new NullPointerException("graphics is marked non-null but is null");
-        }
         this.closeAnim.animate(this.closing ? 0.0 : 1.0, 0.2, Easings.EASE_OUT_POW2);
         this.closeAnim.tick();
         float closeProgress = this.closeAnim.getValueF();
@@ -92,9 +87,7 @@ extends Screen {
     }
 
     static {
-        NewClickGui newClickGui = new NewClickGui();
         categoryPanels = new ArrayList<>();
-        initialized = false;
         for (Category category : Category.values()) {
             categoryPanels.add(new CategoryPanel(category));
         }

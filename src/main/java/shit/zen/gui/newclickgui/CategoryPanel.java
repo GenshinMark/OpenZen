@@ -77,14 +77,11 @@ extends UIElement {
     private float savedHeight;
 
     public CategoryPanel(Category category) {
-        System.out.println("15");
         this.category = category;
         for (Module module : ZenClient.getInstance().getModuleManager().getModulesByCategory(category)) {
             this.moduleElements.add(new ModuleElement(this, module));
         }
-        System.out.println("15.5");
         this.panelHeight = 20.0f + Math.min(240.0f, 20.0f * (float)this.moduleElements.size());
-        System.out.println("16");
     }
 
     @Override

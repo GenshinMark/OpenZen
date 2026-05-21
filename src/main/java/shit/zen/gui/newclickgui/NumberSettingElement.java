@@ -20,7 +20,6 @@ extends SettingElement<NumberSetting> {
     private final SmoothAnimationTimer sliderTimer = new SmoothAnimationTimer();
     private boolean isTruncated;
     private boolean isHovered;
-    float sliderX;
     private boolean isDragging;
 
     public NumberSettingElement(CategoryPanel categoryPanel, NumberSetting numberSetting) {
